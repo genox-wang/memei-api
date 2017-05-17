@@ -1,11 +1,96 @@
 # MeMei API 开发实践
+use App\Http\Controllers\QiniuController;
 
 
-## 阿里云
+## 七牛对接
 
-参考 https://www.mtyun.com/library/19/how-to-install-lnmp-on-centos6/
+参考：[七牛：php-sdk](https://developer.qiniu.com/kodo/sdk/1241/php#6)
+
+```bash
+$ composer require qiniu/php-sdk
+```
 
 ```
+// routes\api.php
+
+Route::get('/qiniu', 'QiniuController@index');
+
+```
+
+```bash
+php artisan make:controller QiuniuController
+```
+
+```php
+// QiniuController
+
+use Qiniu\Auth;
+
+class QiniuController extends Controller
+{
+    public function index() {
+      // 用于签名的公钥和私钥
+      $accessKey = 'Access_Key';
+      $secretKey = 'Secret_Key';
+      // 初始化签权对象
+      $auth = new Auth($accessKey, $secretKey);
+      $bucket = 'Bucket_Name';
+      // 生成上传Token
+      $token = $auth->uploadToken($bucket);
+      return $token;
+    }
+}
+```
+
+### 图片命名算法
+
+参考http://www.cnblogs.com/tambor/archive/2013/04/21/3034017.html
+
+## 阿里云服务器部署
+
+参考：[阿里云 ECS 部署：nginx+MySQL+Laravel+PHP7+Redis+Node.js](https://segmentfault.com/a/1190000009082326)
+
+### 配置目标环境
+
+- Ubuntu 16.04.2 LTS
+
+### 安装 on-my-zsh (可选)
+为了终端操作更顺畅，首先选择安装配置on-my-zsh
+
+```bash
+
+$ sudo apt install zsh
+
+$ chsh -s $(which zsh)
+
+$ sh -c"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+```
+
+添加extract(x解压一切)和z(z到任何去过的目录)插件
+
+```bash
+$ vim ~/.zshrc
+
+//.zshrc
+
+plugins=(git extract z) //添加插件
+```
+
+### 终端免密码ssh（可选）
+
+iterm2终端本身就是一个完美的ssh工具，原来一直使用[SSH Shell](https://itunes.apple.com/us/app/ssh-shell/id981765152?mt=12)，因为它可以记录自己服务器足迹，免密码登陆。
+但它快捷键我很不喜欢，主题也不可以定制！那iterm2可不可以免密码ssh呢，当然是可以的（设置完前还是需要输入自己密码的），只要下面几步就可以了，是不是很轻松：
+
+```bash
+$ ssh-keygen -t rsa //本地生成私钥  公钥
+
+$ scp ~/.ssh/id_rsa.pub root@服务器IP:~/.ssh/  //本地公钥拷贝的服务器端
+
+> cd .ssh
+> cat id_rsa.pub >> authorized_keys //公钥添加到服务器认证密钥文件
+```
+
 $ sudo yum install nginx
 
 

@@ -25,3 +25,7 @@ Route::patch('/user', function (Request $request) {
 Route::delete('/user', function (Request $request) {
     return 'api/deleteuser';
 });
+
+Route::post('/qiniu/token', 'QiniuController@token');
+
+Route::delete('/qiniu/{key}', 'QiniuController@delete');
