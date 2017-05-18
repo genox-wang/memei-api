@@ -60,6 +60,9 @@ class QiniuController extends Controller
 ### 配置目标环境
 
 - Ubuntu 16.04.2 LTS
+- Nginx 1.13.0
+- PHP 7.0.19
+- Mysql 5.7.18
 
 ### 安装 on-my-zsh (可选)
 为了终端操作更顺畅，首先选择安装配置on-my-zsh
@@ -324,3 +327,9 @@ php artisan key:generate
 #### 1. 80端口 3306端口外网无法访问
 
 解决办法： 找到安全组 入方向允许  80 3306 TCP连接
+
+
+
+
+Dingo version 路由
+https://laravel-china.org/topics/1463/lumen-version-of-the-problem-using-dingo-api

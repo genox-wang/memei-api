@@ -1,4 +1,5 @@
 <?php
+use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 
 return [
 
@@ -176,7 +177,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        // Custom
         Barryvdh\Cors\ServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class,
     ],
 
     /*
