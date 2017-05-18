@@ -22,3 +22,12 @@ Route::get('/user', function () {
 Route::post('/user', function () {
     return 'postUser';
 });
+
+Route::get('/artisan', function () {
+    $exitCode = Artisan::call('db:seed');
+    return $exitCode;
+});
+
+Route::get('/eloquent', function () {
+   return App\Models\Catagory::first()->authors()->first()->cards()->first()->photos()->first();
+});

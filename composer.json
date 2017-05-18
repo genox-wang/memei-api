@@ -7,7 +7,9 @@
     "require": {
         "php": ">=5.6.4",
         "barryvdh/laravel-cors": "^0.9.2",
+        "barryvdh/laravel-debugbar": "^2.3",
         "dingo/api": "1.0.x@dev",
+        "doctrine/dbal": "^2.5",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "qiniu/php-sdk": "^7.1"
