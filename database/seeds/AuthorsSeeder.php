@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\Catagory;
+use App\Models\Category;
 use App\Models\Author;
 
 class AuthorsSeeder extends Seeder
@@ -15,10 +15,10 @@ class AuthorsSeeder extends Seeder
     public function run()
     {
       $faker = Faker\Factory::create();
-      $catagory_ids = Catagory::pluck('id')->toArray();
+      $category_ids = Category::pluck('id')->toArray();
       $authors = factory(Author::class, 30)->make()
-      ->each(function($author) use ($faker, $catagory_ids){
-        $author->catagory_id = $faker->randomElement($catagory_ids);
+      ->each(function($author) use ($faker, $category_ids){
+        $author->category_id = $faker->randomElement($category_ids);
       });
       Author::insert($authors->toArray());
     }

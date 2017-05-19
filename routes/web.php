@@ -29,5 +29,5 @@ Route::get('/artisan', function () {
 });
 
 Route::get('/eloquent', function () {
-   return App\Models\Catagory::first()->authors()->first()->cards()->first()->photos()->first();
+   return App\Models\Category::first()->authors()->first()->cards()->first()->photos()->first();
 });

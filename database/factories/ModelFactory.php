@@ -24,7 +24,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\Models\Catagory::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
   return [
     'name' => $faker->name
   ];
@@ -39,12 +39,13 @@ $factory->define(App\Models\Author::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Card::class, function (Faker\Generator $faker) {
   return [
-    'title' => $faker->name
+    'title' => $faker->name,
+    'favorite' => $faker->randomDigit,
   ];
 });
 
 $factory->define(App\Models\Photo::class, function (Faker\Generator $faker) {
   return [
-    'key' => $faker->name
+    'key' => $faker->name,
   ];
 });
