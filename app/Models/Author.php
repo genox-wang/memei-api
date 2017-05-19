@@ -22,7 +22,9 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     public $timestamps = false;
-    //
+
+    protected $fillable = ['name', 'category_id', 'avatar'];
+
     public function category()
     {
       return $this->belongsTo('App\Models\Category');

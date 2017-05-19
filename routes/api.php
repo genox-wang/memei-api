@@ -34,6 +34,35 @@ Route::delete('/qiniu/{key}', 'QiniuController@delete');
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', function ($api) {
+  $api->post('/cards', 'App\Http\Controllers\Api\v1\CardsController@store')->name('cards.store');
+  $api->get('/cards', 'App\Http\Controllers\Api\v1\CardsController@index')->name('cards.index');
+  $api->get('/cards/{id}', 'App\Http\Controllers\Api\v1\CardsController@show')->name('cards.show');
+  $api->get('/cards/{id}/photos', 'App\Http\Controllers\Api\v1\CardsController@photos')->name('cards.photos');
+  $api->put('/cards/{id}', 'App\Http\Controllers\Api\v1\CardsController@update')->name('cards.update');
+  $api->delete('/cards/{id}', 'App\Http\Controllers\Api\v1\CardsController@delete')->name('cards.delete');
+
+  $api->post('/categories', 'App\Http\Controllers\Api\v1\CategoriesController@store')->name('categories.store');
+  $api->get('/categories', 'App\Http\Controllers\Api\v1\CategoriesController@index')->name('categories.index');
+  $api->get('/categories/{id}', 'App\Http\Controllers\Api\v1\CategoriesController@show')->name('categories.show');
+  $api->get('/categories/{id}/cards', 'App\Http\Controllers\Api\v1\CategoriesController@cards')->name('categories.cards');
+  $api->get('/categories/{id}/authors', 'App\Http\Controllers\Api\v1\CategoriesController@authors')->name('categories.authors');
+  $api->put('/categories/{id}', 'App\Http\Controllers\Api\v1\CategoriesController@update')->name('categories.update');
+  $api->delete('/categories/{id}', 'App\Http\Controllers\Api\v1\CategoriesController@delete')->name('categories.delete');
+
+  $api->post('/authors', 'App\Http\Controllers\Api\v1\AuthorsController@store')->name('authors.store');
+  $api->get('/authors', 'App\Http\Controllers\Api\v1\AuthorsController@index')->name('authors.index');
+  $api->get('/authors/{id}', 'App\Http\Controllers\Api\v1\AuthorsController@show')->name('authors.show');
+  $api->get('/authors/{id}/cards', 'App\Http\Controllers\Api\v1\AuthorsController@cards')->name('authors.cards');
+  $api->put('/authors/{id}', 'App\Http\Controllers\Api\v1\AuthorsController@update')->name('authors.update');
+  $api->delete('/authors/{id}', 'App\Http\Controllers\Api\v1\AuthorsController@delete')->name('authors.delete');
+
+  $api->post('/photos', 'App\Http\Controllers\Api\v1\PhotosController@store')->name('photos.store');
+  $api->delete('/photos/{id}', 'App\Http\Controllers\Api\v1\PhotosController@delete')->name('photos.delete');
+
+  $api->post('/photos/uptoken', 'App\Http\Controllers\Api\v1\PhotosController@uptoken')->name('photos.uptoken');
+});
+
+$api->version('v1', function ($api) {
   $api->get('/index', 'App\Http\Controllers\Api\DingoTest\v1\UserController@index');
 });
 

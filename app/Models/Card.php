@@ -23,6 +23,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Card extends Model
 {
+
+    protected $fillable = ['title', 'author_id', 'favorite'];
+
     public function author()
     {
       return $this->belongsTo('App\Models\Author');
