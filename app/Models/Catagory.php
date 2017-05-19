@@ -16,7 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Catagory extends Model
 {
-  public $timestamps = false;
+    public $timestamps = false;
+
     //
     public function authors() {
       return $this->hasMany('App\Models\Author');
