@@ -9,6 +9,13 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
+  "apidoc": {
+    "name": "example",
+    "version": "0.1.0",
+    "description": "apiDoc basic example",
+    "title": "Custom apiDoc browser title",
+    "url" : "https://api.github.com/v1"
+  },
   "devDependencies": {
     "axios": "^0.15.3",
     "bootstrap-sass": "^3.3.7",
