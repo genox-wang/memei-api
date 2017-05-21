@@ -11,6 +11,12 @@ use Qiniu\Storage\BucketManager;
 
 class PhotosController extends Controller
 {
+    /**
+     * @apiDefine 200Success
+     *
+     * @apiSuccessExample {json} Success-Response:
+     * HTTP/1.1 200 OK
+     */
 
     private $bucket = 'memei';
 
@@ -23,6 +29,15 @@ class PhotosController extends Controller
       return $auth;
     }
 
+    /**
+     * @api {post} /photos/ Store
+     * @apiGroup Photos
+     *
+     * @apiParam {String} key Key for photo
+     * @apiParam {Number} card_id Id for photo's card
+     *
+     * @apiUse 200Success
+     */
     public function store(Request $r)
     {
         $photo = [
@@ -32,6 +47,12 @@ class PhotosController extends Controller
         Photo::create($photo);
     }
 
+    /**
+     * @api {delete} /photos/:id Delete
+     * @apiGroup Photos
+     *
+     * @apiUse 200Success
+     */
     public function delete($id)
     {
         $photo = Photo::findOrFail($id);
@@ -49,6 +70,15 @@ class PhotosController extends Controller
         }
     }
 
+    /**
+     * @api {get} /photos/uptoken UpToken
+     * @apiGroup Photos
+     *
+     * @apiParam {String} key Key for photo
+     * @apiParam {Number} card_id Id for photo's card
+     *
+     * @apiSuccess (200) {String} token Token for qiniu upload
+     */
     public function uptoken()
     {
         $token = $this->qiniuAuth()->uploadToken($this->bucket);

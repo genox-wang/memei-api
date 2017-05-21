@@ -59,7 +59,7 @@ $api->version('v1', function ($api) {
   $api->post('/photos', 'App\Http\Controllers\Api\v1\PhotosController@store')->name('photos.store');
   $api->delete('/photos/{id}', 'App\Http\Controllers\Api\v1\PhotosController@delete')->name('photos.delete');
 
-  $api->post('/photos/uptoken', 'App\Http\Controllers\Api\v1\PhotosController@uptoken')->name('photos.uptoken');
+  $api->get('/photos/uptoken', 'App\Http\Controllers\Api\v1\PhotosController@uptoken')->name('photos.uptoken');
 });
 
 $api->version('v1', function ($api) {
