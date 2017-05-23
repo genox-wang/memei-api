@@ -328,6 +328,16 @@ php artisan key:generate
 
 解决办法： 找到安全组 入方向允许  80 3306 TCP连接
 
+#### 2. 使用Dingo后Laravel Cors插件不起作用
+
+DingoApi不会自动加`api`中间件组，需要手动添加`api` (Laravel Cors 中间件加在里面)
+
+```php
+$api->version('v1', ['middleware' => 'api'],  function ($api) {
+    ...
+  }
+}
+```
 
 
 

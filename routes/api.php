@@ -33,7 +33,7 @@ Route::delete('/qiniu/{key}', 'QiniuController@delete');
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function ($api) {
+$api->version('v1', ['middleware' => 'api'],  function ($api) {
   $api->post('/cards', 'App\Http\Controllers\Api\v1\CardsController@store')->name('cards.store');
   $api->get('/cards', 'App\Http\Controllers\Api\v1\CardsController@index')->name('cards.index');
   $api->get('/cards/{id}', 'App\Http\Controllers\Api\v1\CardsController@show')->name('cards.show');
