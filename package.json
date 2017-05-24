@@ -14,7 +14,8 @@
     "version": "1.0.0",
     "description": "API For Memei",
     "title": "MEMEI API",
-    "url" : "http://memei-api.dev/api"
+    "url" : "http://memei-api.dev/api",
+    "sampleUrl": "http://memei-api.dev/api"
   },
   "devDependencies": {
     "axios": "^0.15.3",

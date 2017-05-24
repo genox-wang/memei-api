@@ -37,7 +37,8 @@ class CardsController extends Controller
     }
 
     /**
-     * @api {get} /cards/  Index
+     * @api {get} /cards/
+     *   Index
      * @apiGroup Cards
      *
      * @apiSuccess (200) {Object[]} cards List of cards
@@ -71,7 +72,7 @@ class CardsController extends Controller
     }
 
     /**
-     * @api {put} /cards/ Update
+     * @api {put} /cards/:id Update
      * @apiGroup Cards
      *
      * @apiParam {String} title Card Title

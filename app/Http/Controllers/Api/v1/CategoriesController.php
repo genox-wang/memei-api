@@ -60,7 +60,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * @api {put} /categories/ Update
+     * @api {put} /categories/:id Update
      * @apiGroup Categories
      *
      * @apiParam {String} name Name for category

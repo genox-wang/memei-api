@@ -106,7 +106,7 @@ class AuthorsController extends Controller
     }
 
     /**
-     * @api {get} /authors/:id/catds Cards
+     * @api {get} /authors/:id/cards Cards
      * @apiGroup Authors
      *
      * @apiSuccess (200) {Object[]} cards List of cards
