@@ -91,5 +91,6 @@
                 </div>
             </div>
         </div>
+        <footer style="text-align: center;"><a href="http://www.miitbeian.gov.cn">沪ICP备16022482号-2</a></footer>
     </body>
 </html>
